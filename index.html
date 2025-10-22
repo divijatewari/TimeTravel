@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finance Dashboard Mock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#0ea886; /* teal accent */
+      --muted:#9da0a3;
+      --accent-blue:#1b6fff;
+      --cream:#f2fff6;
+    }
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    html,body{height:100%;margin:0;background:var(--bg);color:#fff}
+    .phone{max-width:420px;margin:18px auto;border-radius:28px;background:linear-gradient(180deg,#070707,#0e0e0e);padding:22px;box-shadow:0 30px 60px rgba(0,0,0,.6);}
+
+    /* Header */
+    .top{display:flex;align-items:center;justify-content:space-between}
+    .hamb{width:28px;height:28px;display:flex;flex-direction:column;gap:5px}
+    .hamb span{display:block;height:3px;background:#fff;border-radius:3px;opacity:.9}
+    .logo{width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#0fbf85,#0aa86f);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042;box-shadow:0 10px 20px rgba(0,0,0,.6)}
+
+    .welcome{text-align:center;margin:18px 0 6px}
+    .welcome h2{margin:0;font-weight:600;color:#d7d7d7}
+    .welcome p{margin:6px 0 0;color:var(--muted)}
+
+    .balances{display:flex;align-items:center;justify-content:space-between;margin:12px 0}
+    .balances .big{font-size:22px;font-weight:800}
+    .balances .small{font-size:14px;color:var(--muted)}
+    .expense{color:var(--accent-blue);font-weight:700}
+
+    /* progress */
+    .progress-wrap{background:linear-gradient(90deg,#0d0d0d,#111);padding:12px;border-radius:26px;margin:12px 0}
+    .progress{height:16px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden}
+    .progress > i{display:block;height:100%;width:58%;background:linear-gradient(90deg,var(--card),#b7f5d6)}
+    .progress .label{font-size:12px;color:var(--muted);text-align:right;margin-top:8px}
+
+    .status{color:var(--muted);font-size:13px;margin:10px 0}
+
+    /* summary card */
+    .summary{display:flex;gap:12px;background:linear-gradient(180deg,#14b88b22,#14b88b11);border-radius:28px;padding:14px;align-items:center}
+    .summary .left{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px}
+    .circle{width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#bff5dd,#8ee6c5);display:flex;align-items:center;justify-content:center}
+    .summary .right{flex:2;padding-left:8px;border-left:1px solid rgba(255,255,255,.06)}
+    .summary h4{margin:0;font-weight:700}
+    .summary p{margin:6px 0;color:var(--muted);font-size:13px}
+
+    /* timeframe toggle */
+    .toggle{display:flex;gap:8px;margin:16px 0;background:linear-gradient(90deg,#e7f6ec,#eefef6);padding:6px;border-radius:26px}
+    .toggle button{flex:1;padding:10px;border-radius:20px;border:none;background:transparent;font-weight:700}
+    .toggle button.active{background:var(--card);color:#022}
+
+    h3.section{margin:8px 0;color:#d7d7d7}
+    .viewall{color:#e8c76a;font-weight:600;font-size:14px}
+
+    /* transactions */
+    .tx{display:flex;flex-direction:column;gap:12px;margin:12px 0}
+    .tx .row{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:18px;background:linear-gradient(90deg,#17c18f22,#17c18f11)}
+    .tx .row .left{display:flex;align-items:center;gap:12px}
+    .avatar{width:46px;height:46px;border-radius:12px;background:#dff8ea;display:flex;align-items:center;justify-content:center;color:#033}
+    .row .amt{font-weight:800}
+    .row.purp{background:linear-gradient(90deg,#bfa9ff22,#bfa9ff11)}
+
+    /* bottom spacing */
+    .spacer{height:20px}
+
+    @media (max-width:420px){.phone{margin:8px;border-radius:18px;padding:16px}}
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <div class="top">
+      <div class="hamb"><span></span><span></span><span style="width:60%"></span></div>
+      <div class="logo">AI</div>
+    </div>
+
+    <div class="welcome">
+      <h2>Welcome Back!</h2>
+      <p>Your Balance</p>
+    </div>
+
+    <div class="balances">
+      <div>
+        <div class="small">Total Balance</div>
+        <div class="big">$7,783.00</div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Total Expense</div>
+        <div class="big expense">-$1,187.40</div>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress"><i></i></div>
+      <div class="progress-label label">Rs176000.00</div>
+      <div class="status">30% Of Your Expenses, Looks Good.</div>
+
+      <div class="summary">
+        <div class="left">
+          <div class="circle">🚗</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:8px">Savings<br/>On Goals</div>
+        </div>
+        <div class="right">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:12px;color:var(--muted)">Revenue Last Week</div>
+              <div style="font-weight:700;font-size:16px">$4,000.00</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:12px;color:var(--muted)">Food Last Week</div>
+              <div style="font-weight:700;color:var(--accent-blue)">-$100.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="toggle">
+      <button>Daily</button>
+      <button>Weekly</button>
+      <button class="active">Monthly</button>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 class="section">Transaction</h3>
+      <div class="viewall">View All &gt;</div>
+    </div>
+
+    <div class="tx">
+      <div class="row">
+        <div class="left"><div class="avatar">🍔</div><div><div style="font-weight:700;color:#042">Food</div><div style="font-size:12px;color:var(--muted)">-</div></div></div>
+        <div class="amt">-$3,456.78</div>
+      </div>
+
+      <div class="row purp">
+        <div class="left"><div class="avatar">🚆</div><div><div style="font-weight:700;color:#042">Transport</div><div style="font-size:12px;color:var(--muted)">-</div></div></div>
+        <div class="amt">$4,520.45</div>
+      </div>
+
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+</body>
+</html>
